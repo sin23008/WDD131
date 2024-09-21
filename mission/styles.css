@@ -1,0 +1,37 @@
+.content {
+margin: 0 auto;
+padding-top: 30px;
+width: 600px;
+}
+
+.title, .subtitle {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 10px;
+    color: #006eb6;
+}
+
+hr {
+    color: rgb(234, 234, 234);
+    width: 500px;
+}
+
+p, .main-text {
+    width: 450px;
+    margin-left: 70px;
+}
+
+li {
+    margin-left: -10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
