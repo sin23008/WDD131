@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission Statement</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts/theme.js"></script>
 </head>
 <body>
     <div class="content">
@@ -13,6 +14,10 @@
             <h2 class="subtitle">BRIGHAM YOUNG UNIVERSITY-IDAHO</h2>
             
             <hr>
+            <select name="theme" id="theme">
+                <option value="light">light</option>
+                <option value="dark">dark</option>
+            </select>
             <p class="main-text">Brigham Young University-Idaho was founded and is supported and guided by The Church of Jesus Christ of Latter-day Saints. Its mission is to develop disciples of Jesus Christ who are leaders in their homes, the
                 Church, and their communities.</p>
             <p class="italicized"><em>The university does this by:</em></p>
@@ -25,7 +30,7 @@
                 <li>Delivering education that is affordable for students and the Church.</li>
             </ol>
             <br>
-            <img src="images/byui-logo_blue.webp" alt="Logo of BYU-Idaho">
+            <img id="logo" src="images/byui-logo_blue.webp" alt="Logo of BYU-Idaho">
         </main>
     </div>
 </body>

@@ -2,6 +2,21 @@
 margin: 0 auto;
 padding-top: 30px;
 width: 600px;
+border: lightgray solid;
+border-width: 1px;
+}
+
+select {
+    margin-left: 50px;
+}
+
+.dark {
+    background-color: #333;
+    color: white;
+}
+
+.dark h2 {
+    color: #4f9acf;
 }
 
 .title, .subtitle {
@@ -30,8 +45,9 @@ li {
     margin-bottom: 10px;
 }
 
-img {
+#logo {
     width: 150px;
     display: block;
-    margin: 0 auto;
+    margin: 30px auto;
+    margin-top: 0;
 }
