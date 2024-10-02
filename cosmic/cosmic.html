@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cosmic.css">
+     <script src="cosmic.js"></script>
+    <title>Cosmic Wonderland</title>
+    <!-- <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(to bottom right, #000033, #000066, #003399);
+            color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+
+        .cosmic-scene {
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .planet {
+            position: absolute;
+            border-radius: 50%;
+            box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
+            background-image: linear-gradient(to bottom right, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            animation: rotate 20s linear infinite;
+        }
+
+        .star {
+            position: absolute;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 1s infinite alternate;
+        }
+
+        .ufo-orbit {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            animation: orbit 20s linear infinite;
+        }
+
+        .ufo {
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background-color: #48dbfb;
+            border-radius: 50% 50% 0 0;
+            cursor: pointer;
+            transform-origin: center bottom;
+            animation: tilt 4s ease-in-out infinite;
+        }
+
+        .ufo::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 60px;
+            height: 20px;
+            background-color: #54a0ff;
+            border-radius: 0 0 50% 50%;
+        }
+
+        .ufo::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 35px;
+            width: 30px;
+            height: 15px;
+            background-color: #5f27cd;
+            border-radius: 50%;
+        }
+
+        .laser {
+            position: absolute;
+            width: 3px;
+            background-color: #ff3131;
+            transform-origin: top center;
+            animation: shoot 0.5s linear;
+            box-shadow: 0 0 5px #ff3131, 0 0 10px #ff3131;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+        }
+
+        @keyframes tilt {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        @keyframes shoot {
+            0% { height: 0; opacity: 1; }
+            100% { height: 100vh; opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .planet { width: 150px !important; height: 150px !important; }
+            .ufo { width: 80px; height: 40px; }
+            .ufo::before { bottom: -8px; left: 15px; width: 50px; height: 16px; }
+            .ufo::after { top: 8px; left: 28px; width: 24px; height: 12px; }
+            .ufo-orbit { animation: orbit 20s linear infinite; }
+        }
+    </style> -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cosmic Wonderland</h1>
+        </header>
+        <div class="cosmic-scene" id="cosmicScene"></div>
+    </div>
+    <!-- <script>
+        function createStars() {
+            const scene = document.getElementById('cosmicScene');
+            const starCount = 200;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 1}s`;
+                scene.appendChild(star);
+            }
+        }
+
+        function createPlanet() {
+            const scene = document.getElementById('cosmicScene');
+            const planet = document.createElement('div');
+            planet.className = 'planet';
+            planet.style.width = '300px';
+            planet.style.height = '300px';
+            planet.style.left = 'calc(50% - 150px)';
+            planet.style.top = 'calc(50% - 150px)';
+            scene.appendChild(planet);
+        }
+
+        function createUFO() {
+            const scene = document.getElementById('cosmicScene');
+            const ufoOrbit = document.createElement('div');
+            ufoOrbit.className = 'ufo-orbit';
+            ufoOrbit.style.left = 'calc(50% - 0.5px)';
+            ufoOrbit.style.top = 'calc(50% - 0.5px)';
+            
+            const ufo = document.createElement('div');
+            ufo.className = 'ufo';
+            ufo.style.left = '-50px';
+            ufo.style.top = '-25px';
+            ufo.addEventListener('click', shootLaser);
+            
+            ufoOrbit.appendChild(ufo);
+            scene.appendChild(ufoOrbit);
+        }
+
+        function shootLaser(event) {
+            const scene = document.getElementById('cosmicScene');
+            const ufo = event.target;
+            const ufoRect = ufo.getBoundingClientRect();
+            const sceneRect = scene.getBoundingClientRect();
+
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const laser = document.createElement('div');
+                    laser.className = 'laser';
+                    
+                    const laserStartX = ufoRect.left + ufoRect.width / 2 - sceneRect.left;
+                    const laserStartY = ufoRect.top + ufoRect.height / 2 - sceneRect.top;
+                    
+                    laser.style.left = `${laserStartX}px`;
+                    laser.style.top = `${laserStartY}px`;
+                    
+                    const angle = -30 + i * 30; // Spread lasers at -30°, 0°, and 30°
+                    laser.style.transform = `rotate(${angle}deg)`;
+
+                    scene.appendChild(laser);
+
+                    // Play laser sound
+                    const laserSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU' + 'A'.repeat(1024));
+                    laserSound.play();
+
+                    setTimeout(() => {
+                        scene.removeChild(laser);
+                    }, 500);
+                }, i * 100); // Delay each laser by 100ms
+            }
+        }
+
+        window.addEventListener('load', () => {
+            createStars();
+            createPlanet();
+            createUFO();
+        });
+    </script> -->
+</body>
+</html>

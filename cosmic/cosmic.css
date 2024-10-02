@@ -1,0 +1,131 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(to bottom right, #000033, #000066, #003399);
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+}
+
+.cosmic-scene {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
+    background-image: linear-gradient(to bottom right, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    animation: rotate 20s linear infinite;
+}
+
+.star {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 1s infinite alternate;
+}
+
+.ufo-orbit {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    animation: orbit 20s linear infinite;
+}
+
+.ufo {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: #48dbfb;
+    border-radius: 50% 50% 0 0;
+    cursor: pointer;
+    transform-origin: center bottom;
+    animation: tilt 4s ease-in-out infinite;
+}
+
+.ufo::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 60px;
+    height: 20px;
+    background-color: #54a0ff;
+    border-radius: 0 0 50% 50%;
+}
+
+.ufo::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 35px;
+    width: 30px;
+    height: 15px;
+    background-color: #5f27cd;
+    border-radius: 50%;
+}
+
+.laser {
+    position: absolute;
+    width: 3px;
+    background-color: #ff3131;
+    transform-origin: top center;
+    animation: shoot 0.5s linear;
+    box-shadow: 0 0 5px #ff3131, 0 0 10px #ff3131;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+@keyframes orbit {
+    0% { transform: rotate(0deg) translateX(250px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(250px) rotate(-360deg); }
+}
+
+@keyframes tilt {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(10deg); }
+}
+
+@keyframes shoot {
+    0% { height: 0; opacity: 1; }
+    100% { height: 100vh; opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 1.8em; }
+    .planet { width: 150px !important; height: 150px !important; }
+    .ufo { width: 80px; height: 40px; }
+    .ufo::before { bottom: -8px; left: 15px; width: 50px; height: 16px; }
+    .ufo::after { top: 8px; left: 28px; width: 24px; height: 12px; }
+    .ufo-orbit { animation: orbit 20s linear infinite; }
+}
