@@ -7,12 +7,16 @@
     <meta name="description" content="A site to display cool pics">
     <title>Coolpics</title>
     <link rel="stylesheet" href="coolpics.css">
-    <script src="coolpics.js"></script>
+    <script src="coolpics.js" defer></script>
 </head>
 <body>
+    <!-- <div class="viewer">
+        <button class="close-viewer">X</button>
+        <img src="coolpics/norris-full.jpeg" alt="picture">
+    </div> -->
     <header>
         <h1>Cool Pics 📷</h1>
-        <button onclick="toggleList()">Menu</button>
+        <button class="menu" onclick="toggleList()">Menu</button>
         <ul id="links">
             <li>
                 <a href="index.html">Home</a>
