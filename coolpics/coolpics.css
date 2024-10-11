@@ -133,6 +133,7 @@ h2 {
     padding: .65em;
     border: 8px, solid, transparent;
     box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
 }
 
 @media screen and (min-width: 700px){
