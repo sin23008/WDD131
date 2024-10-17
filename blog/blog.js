@@ -47,5 +47,5 @@ function displayArticles(articles) {
 		document.querySelector(".articles").insertAdjacentHTML("beforeend", articleTemplate(article))
 	})
 }
-
+// 
 displayArticles(articles)
