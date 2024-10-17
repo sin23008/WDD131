@@ -25,3 +25,27 @@ const articles = [
 		stars: '⭐⭐⭐⭐'
 	}
 ]
+
+function articleTemplate(article) {
+	const { title, date, description, imgSrc, imgAlt, ages, genre, stars } = article
+
+	return `<div class="book-info-left">
+                    <p>${date}</p>
+                    <p>${ages}</p>
+                    <p>${genre}</p>
+                    <p>${stars}</p>
+                </div>
+                <div>
+                    <h2>${title}</h2>
+                    <img src="${imgSrc}" alt="${imgAlt}"></img>
+                    <p>${description}</p>
+                </div>`
+}
+
+function displayArticles(articles) {
+	articles.forEach(article => {
+		document.querySelector(".articles").insertAdjacentHTML("beforeend", articleTemplate(article))
+	})
+}
+
+displayArticles(articles)
