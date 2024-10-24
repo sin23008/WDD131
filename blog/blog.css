@@ -63,13 +63,14 @@ header h1 {
 .book-info-left {
     border-right: 1px solid var(--border-color);
     text-align: right;
-    padding: 1em;
+    padding-right: 1em;
     padding-top: 0;
     line-height: .75;
 }
 
 .article-date {
     font-size: 1.2em;
+    line-height: 1em;
 }
 
 .filter-form {
