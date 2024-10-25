@@ -9,7 +9,7 @@ const articles = [
 		imgAlt: 'Book cover for Septimus Heap 1',
 		ages: '10-14',
 		genre: 'Fantasy',
-		stars: '****'
+		stars: '⭐⭐⭐⭐'
 	},
 	{
 		id: 2,
@@ -61,4 +61,32 @@ function displayArticles(articles) {
 	})
 }
 
-displayArticles(articles)
+function filterArticles() {
+	const ageRange = document.getElementById("ageRange").value;
+	const rating = document.getElementById("rating").value;
+
+	const articlesContainer = document.querySelector(".articles");
+	articlesContainer.innerHTML = "";
+
+	const filteredArticles = articles.filter(article => {
+		const ageMatch = !ageRange || article.ages === ageRange;
+		const ratingMatch = !rating || article.stars === rating;
+		return ageMatch && ratingMatch
+	});
+
+	if (filteredArticles.length > 0) {
+		displayArticles(filteredArticles);
+	} else {
+		articlesContainer.innerHTML = "<div class=\"no-results\">No books match your selected filters</div>";
+	}
+}
+
+function resetFilters() {
+	document.querySelector(".filter-container").reset();
+	filterArticles();
+}
+document.getElementById("ageRange").addEventListener("change", filterArticles);
+document.getElementById("rating").addEventListener("change", filterArticles);
+document.querySelector(".resetButton").addEventListener("click", resetFilters);
+
+displayArticles(articles);

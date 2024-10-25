@@ -27,7 +27,25 @@
         <div id="content">
             <section class="articles"></section>
             <div class="filter-form">
-                <p>This will contain the filter form</p>
+                <form class="filter-container">
+                    <div class="filter-group">
+                        <label for="ageRange">Age Range:</label>
+                        <select name="ageRange" id="ageRange">
+                            <option value="">All Ages</option>
+                            <option value="10-14">10-14</option>
+                            <option value="12-16">12-16</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="rating">Rating:</label>
+                        <select name="rating" id="rating">
+                            <option value="">All Ratings</option>
+                            <option value="⭐⭐⭐⭐⭐">5 Stars</option>
+                            <option value="⭐⭐⭐⭐">4 Stars</option>
+                        </select>
+                    </div>
+                    <button type="button" class="resetButton">Reset Filters</button>
+                </form>
             </div>
         </div>
     </main>
