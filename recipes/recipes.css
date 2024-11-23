@@ -44,6 +44,7 @@ header {
     width: 90vw;
     background-color: rgba(0, 0, 0, 0);
     font-size: 1.25em;
+    cursor: pointer;
 }
 
 #search input:focus {
@@ -131,6 +132,15 @@ p {
     /* margin-top: 5px; */
     padding: 0.2em;
     border: 1.5px solid gray;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+.recipe-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
 }
 
 /* ----------- Footer ----------- */
